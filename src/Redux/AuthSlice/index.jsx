@@ -10,6 +10,7 @@ export const loginUser = createAsyncThunk(
       if (data.length === 0) {
         throw new Error('Invalid credentials');
       }
+      localStorage.setItem('user', JSON.stringify(data[0]));
       return data[0] // Return the first matched user
     } catch (error) {
       return rejectWithValue(error.message);

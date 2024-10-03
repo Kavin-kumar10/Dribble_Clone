@@ -9,7 +9,7 @@ import { useSelector } from "react-redux";
 
 
 const Navbar = () => {
-    const User = useSelector(state => state.Auth.user)
+    const User = JSON.parse(localStorage.getItem('user'));
     return(
         <div className="Navbar flex justify-between items-center px-5 md:px-10 py-6 font-bold gap-5">
             <ul className="hidden md:flex gap-6 text-sm items-center justify-start flex-grow">
@@ -30,12 +30,15 @@ const Navbar = () => {
                 </div>
                 <IoSearchOutline className="block md:hidden text-2xl text-black"/>
                 {
-                    User?
-                    <div className="">
+                    !User?
+                    <>
                         <button className="px-0 py-3 hidden md:block hover:opacity-50">Log in</button>
                         <CustomButton text="Sign up" mode="dark"/>
+                    </>
+                    :
+                    <div className="h-12 w-12 rounded-full object-cover">
+                        <img src="https://cdn.dribbble.com/uploads/47173/original/Vladimir_Gruev.png?1689174896&format=webp&resize=400x498&vertical=center" className="h-full w-full object-cover rounded-full "/>
                     </div>
-                    :<></>
                 }
          
             </ul>

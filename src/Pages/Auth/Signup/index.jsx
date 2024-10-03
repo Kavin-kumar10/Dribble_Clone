@@ -15,8 +15,8 @@ const Signup = () =>{
             <div className="flex flex-col items-center justify-center w-full h-full">
                 <div className="w-[30vw] gap-5 flex flex-col">
                     <h1 className="text-2xl font-semibold mb-10">Sign up to Dribbble</h1>
-                    <button className="w-full flex bg-primary text-secondary items-center justify-center font-semibold p-3 rounded-full border ">Sign up to Google</button>
-                    <button className="w-full flex bg-secondary text-primary items-center justify-center font-semibold p-3 rounded-full border ">Continue with email</button>
+                    <button className="w-full hover:opacity-50 flex bg-primary text-secondary items-center justify-center font-semibold p-3 rounded-full border ">Sign up to Google</button>
+                    <button className="w-full hover:opacity-50 flex bg-secondary text-primary items-center justify-center font-semibold p-3 rounded-full border ">Continue with email</button>
                     <p className="text-sm text-center mt-10">By creating an account you agree with our Terms of Service, Privacy Policy, and our default Notification Settings.</p>
                     <p className="text-center text-sm">Already have an account? <u>Sign In</u></p>
                 </div>

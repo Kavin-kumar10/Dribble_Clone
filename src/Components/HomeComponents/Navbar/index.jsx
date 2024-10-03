@@ -4,10 +4,12 @@ import CustomButton from "../../CustomButton";
 import { IoSearchOutline } from "react-icons/io5";
 import { FaAngleDown } from "react-icons/fa6";
 import { HiBars3BottomLeft } from "react-icons/hi2";
+import { useSelector } from "react-redux";
 
 
 
 const Navbar = () => {
+    const User = useSelector(state => state.Auth.user)
     return(
         <div className="Navbar flex justify-between items-center px-5 md:px-10 py-6 font-bold gap-5">
             <ul className="hidden md:flex gap-6 text-sm items-center justify-start flex-grow">
@@ -27,8 +29,15 @@ const Navbar = () => {
                     <span className="text-xl absolute left-4 top-4 text-gray-400"><IoSearchOutline/></span>           
                 </div>
                 <IoSearchOutline className="block md:hidden text-2xl text-black"/>
-                <button className="px-0 py-3 hidden md:block">Log in</button>
-                <CustomButton text="Sign up" mode="dark"/>
+                {
+                    User?
+                    <div className="">
+                        <button className="px-0 py-3 hidden md:block hover:opacity-50">Log in</button>
+                        <CustomButton text="Sign up" mode="dark"/>
+                    </div>
+                    :<></>
+                }
+         
             </ul>
         </div>
     )

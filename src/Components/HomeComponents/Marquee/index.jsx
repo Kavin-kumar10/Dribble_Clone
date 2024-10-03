@@ -15,8 +15,8 @@ const Marquee = () => {
         <div className="marquee h-[40vh]">
             <div className="marquee-content gap-4">
                 {Profiles.map((profile, index) => (
-                    <div key={index} className="marquee-item flex flex-col items-start min-h-72 min-w-64 rounded-2xl justify-end relative bg-white shadow-lg m-2">
-                        <div className="absolute h-full w-full justify-end text-secondary flex flex-col gap-3 p-4">
+                    <div key={index} className="cursor-pointer marquee-item flex flex-col items-start min-h-72 min-w-64 rounded-xl justify-end relative bg-white shadow-lg m-2">
+                        <div className="absolute h-full w-full justify-end text-secondary flex rounded-xl flex-col gap-3 p-4">
                             <div className="flex flex-col">
                                 <h1 className="text-xs font-bold">{profile.name}</h1>
                                 <h2 className="text-xs font-bold">{profile.role}</h2>
@@ -33,7 +33,7 @@ const Marquee = () => {
                             autoPlay 
                             muted 
                             loop
-                            className='h-full w-full object-cover rounded-lg'
+                            className='h-full w-full object-cover rounded-2xl'
                           >
                             <source
                               src={profile.video}
@@ -41,7 +41,7 @@ const Marquee = () => {
                             />
                           </video>
                           
-                        :<img alt="Mercedes Bazan" width="273" height="340" className="object-cover h-full rounded-lg lazypreload lazyautosizes ls-is-cached lazyloaded" data-sizes="auto" data-aspectratio="0.8029411764705883" src={profile.profilePicture}/>        
+                        :<img alt="Mercedes Bazan" width="273" height="340" className="object-cover h-full rounded-2xl" data-sizes="auto" data-aspectratio="0.8029411764705883" src={profile.profilePicture}/>        
                         }
                     </div>
                 ))}

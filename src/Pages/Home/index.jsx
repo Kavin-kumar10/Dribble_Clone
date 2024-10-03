@@ -6,12 +6,15 @@ import Explore from "../../Components/HomeComponents/Explore";
 import DesignBanner from "../../Components/HomeComponents/DesignBanner";
 import Footer from "../../Components/HomeComponents/Footer";
 import { useSelector,useDispatch } from "react-redux";
-import { fetchProfiles } from "../../Redux/DataSlice";
+import { fetchDesigns, fetchProfiles,fetchThumpnails } from "../../Redux/AxiosCalls";
+import Thumpnails from "../../Components/HomeComponents/Thumpnails";
 
 const Home = () =>{
     const dispatch = useDispatch();
     useEffect(()=>{
         dispatch(fetchProfiles());
+        dispatch(fetchThumpnails())
+        dispatch(fetchDesigns())
     },[])
     return(
         <div className="Home bg-secondary text-primary min-h-screen w-screen">
@@ -20,6 +23,7 @@ const Home = () =>{
             <Marquee/>
             <Explore/>
             <DesignBanner/>
+            <Thumpnails/>
             <Footer/>
         </div>
     )

@@ -1,17 +1,15 @@
 import { createSlice,createAsyncThunk } from "@reduxjs/toolkit";
+import { fetchDesigns, fetchProfiles,fetchThumpnails } from "../AxiosCalls";
 
 const initialState = {
     Profiles:[],
+    Thumpnails: [],
+    Designs:[],
     loading: false,
     error: null,
 };
 
-export const fetchProfiles = createAsyncThunk('profiles/fetchProfiles', async () => {
-    const response = await fetch('http://localhost:8000/profiles');
-    const data = await response.json();
-    return data;
-  });
-  
+
 
 const dataSlice = createSlice({
     name:"Data",
@@ -30,7 +28,36 @@ const dataSlice = createSlice({
           .addCase(fetchProfiles.rejected, (state, action) => {
             state.loading = false;
             state.error = action.error.message;
+          })
+
+          //Thumpnails
+          .addCase(fetchThumpnails.pending, (state) => {
+            state.loading = true;
+            state.error = null;
+          })
+          .addCase(fetchThumpnails.fulfilled, (state, action) => {
+            state.loading = false;
+            state.Thumpnails = action.payload;
+          })
+          .addCase(fetchThumpnails.rejected, (state, action) => {
+            state.loading = false;
+            state.error = action.error.message;
+          })
+
+          //Designs
+          .addCase(fetchDesigns.pending, (state) => {
+            state.loading = true;
+            state.error = null;
+          })
+          .addCase(fetchDesigns.fulfilled, (state, action) => {
+            state.loading = false;
+            state.Designs = action.payload;
+          })
+          .addCase(fetchDesigns.rejected, (state, action) => {
+            state.loading = false;
+            state.error = action.error.message;
           })}
+          
 });
 
 export default dataSlice.reducer

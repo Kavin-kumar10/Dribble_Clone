@@ -24,14 +24,14 @@ const Footer =() =>{
                     <li><FaPinterest/></li>
                 </ul>
             </div>
-            <div className="bottom_foot flex flex-col lg:flex-row justify-between opacity-50 gap-10 w-full py-10">
-                <ul className="flex flex-wrap items-center justify-center gap-5">
+            <div className="bottom_foot flex flex-col lg:flex-row justify-between opacity-50 gap-4 md:gap-10 w-full py-10">
+                <ul className="flex flex-wrap items-center justify-center gap-1 md:gap-5">
                     <li>@ 2024 Dribbble</li>
                     <li>Terms</li>
                     <li>Privacy</li>
                     <li>Cookies</li>
                 </ul>
-                <ul className="flex flex-wrap items-center justify-center gap-5">
+                <ul className="flex flex-wrap items-center justify-center gap-1 md:gap-5">
                     <li>Jobs</li>
                     <li>Designers</li>
                     <li>Freelancers</li>

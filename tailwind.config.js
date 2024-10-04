@@ -17,6 +17,9 @@ module.exports = {
         primary:"#0d0c22",
         secondary:"#F8F7F4"
       },
+      boxShadow: {
+        'custom-shadow': '0px 0px 0px 4px rgba(234, 100, 217, 0.1)',
+      },
       fontFamily: {
         'source-serif': ['"Source Serif 4"', 'system-ui'], 
         'georgia-italic': ['"Georgia Italic"', 'serif'],

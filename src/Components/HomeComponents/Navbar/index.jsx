@@ -26,7 +26,7 @@ const Navbar = () => {
             </div>
             <ul className="text-sm flex items-center justify-end gap-5 flex-grow">
                 <div className="relative hidden lg:block">
-                    <input className="hover:shadow-[rgba(234, 100, 217, 0.1)] px-10 py-4 rounded-full text-black font-light" type="text" placeholder="Search..." />
+                    <input className="outline-none focus:shadow-custom-shadow hover:shadow-custom-shadow px-10 py-4 rounded-full text-black font-light" type="text" placeholder="Search..." />
                     <span className="text-xl absolute left-4 top-4 text-gray-400"><IoSearchOutline/></span>           
                 </div>
                 <IoSearchOutline className="block md:hidden text-2xl text-black"/>

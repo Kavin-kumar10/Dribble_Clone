@@ -3,6 +3,8 @@ import { useDispatch,useSelector } from "react-redux";
 import { useState } from "react";
 import { loginUser } from "../../../Redux/AxiosCalls";
 import { useNavigate } from "react-router-dom";
+import { FcGoogle } from "react-icons/fc";
+
 
 
 const Login = ()=>{
@@ -14,7 +16,9 @@ const Login = ()=>{
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(loginUser({ email, password }));
-        navigate('/');
+        setTimeout(()=>{
+            navigate('/');
+        },1000)
     };
     
     return(
@@ -31,7 +35,7 @@ const Login = ()=>{
             <div className="flex flex-col items-center justify-center w-full h-full">
                 <form onSubmit={handleSubmit} className="w-full p-10 sm:p-0 sm:w-1/2 md:w-1/3 gap-5">
                     <h1 className="text-3xl font-semibold mb-10">Sign in to Dribbble</h1>
-                    <button className="w-full flex items-center justify-center font-semibold p-3 rounded-full border ">Sign in to Google</button>
+                    <button className="w-full flex items-center justify-center font-semibold p-3 rounded-full border gap-5"><FcGoogle size={20}/> Sign in to Google</button>
                     <div className="flex flex-col gap-2 my-5">
                         <label htmlFor="user">Username or Email</label>
                         <input type="email" placeholder="kavinkumarm@presidio.com" value={email} onChange={(e) => setEmail(e.target.value)} id="user" className="border px-4 py-4 rounded-2xl outline-none"

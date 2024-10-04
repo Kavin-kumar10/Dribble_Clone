@@ -8,8 +8,12 @@ import Footer from "../../Components/HomeComponents/Footer";
 import { useSelector,useDispatch } from "react-redux";
 import { fetchDesigns, fetchProfiles,fetchThumpnails } from "../../Redux/AxiosCalls";
 import Thumpnails from "../../Components/HomeComponents/Thumpnails";
+import Subnav from "../../Components/HomeComponents/Subnav";
+import DesignCard from "../../Components/HomeComponents/DesignCard";
 
 const Home = () =>{
+    const User = JSON.parse(localStorage.getItem("user"));
+    const Designs = useSelector(state => state.Data.Designs)
     const dispatch = useDispatch();
     useEffect(()=>{
         dispatch(fetchProfiles());
@@ -19,11 +23,29 @@ const Home = () =>{
     return(
         <div className="Home bg-secondary text-primary min-h-screen w-screen">
             <Navbar/>
-            <GetStarted/>
-            <Marquee/>
-            <Explore/>
-            <DesignBanner/>
-            <Thumpnails/>
+            {
+                User?
+                <>
+                    <Subnav/>
+                    <div className="px-10 md:px-20 py-6 grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-10">
+                    {
+                        Designs?.map((design)=>{
+                            return(
+                                <DesignCard key={design.id} design={design}/>
+                            )
+                        })
+                    }
+            </div>
+                </>:
+                <>
+                    <GetStarted/>
+                    <Marquee/>
+                    <Explore/>
+                    <DesignBanner/>
+                    <Thumpnails/>
+                </>
+            }
+          
             <Footer/>
         </div>
     )

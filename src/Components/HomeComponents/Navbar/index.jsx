@@ -5,6 +5,7 @@ import { IoSearchOutline } from "react-icons/io5";
 import { FaAngleDown } from "react-icons/fa6";
 import { HiBars3BottomLeft } from "react-icons/hi2";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 
 
@@ -32,12 +33,15 @@ const Navbar = () => {
                 {
                     !User?
                     <>
-                        <button className="px-0 py-3 hidden md:block hover:opacity-50">Log in</button>
-                        <CustomButton text="Sign up" mode="dark"/>
+                        <Link to="/Login"><button className="cursor-pointer px-0 py-3 hidden md:block hover:opacity-50">Log in</button></Link>
+                        <Link to="/Signup"><CustomButton text="Sign up" mode="dark"/></Link>    
                     </>
                     :
                     <div className="h-12 w-12 rounded-full object-cover">
-                        <img src="https://cdn.dribbble.com/uploads/47173/original/Vladimir_Gruev.png?1689174896&format=webp&resize=400x498&vertical=center" className="h-full w-full object-cover rounded-full "/>
+                        <img onClick={()=>{
+                            localStorage.removeItem('user');
+                            window.location.reload();
+                        }} src="https://cdn.dribbble.com/uploads/47173/original/Vladimir_Gruev.png?1689174896&format=webp&resize=400x498&vertical=center" className="h-full w-full object-cover rounded-full "/>
                     </div>
                 }
          

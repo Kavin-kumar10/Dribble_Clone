@@ -1,22 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { loginUser } from '../AxiosCalls';
 
-// Thunk for logging in
-export const loginUser = createAsyncThunk(
-  'auth/loginUser',
-  async ({ email, password }, { rejectWithValue }) => {
-    try {
-      const response = await fetch(`http://localhost:8000/users?email=${email}&password=${password}`);
-      const data = await response.json();
-      if (data.length === 0) {
-        throw new Error('Invalid credentials');
-      }
-      localStorage.setItem('user', JSON.stringify(data[0]));
-      return data[0] // Return the first matched user
-    } catch (error) {
-      return rejectWithValue(error.message);
-    }
-  }
-);
 
 // Auth Slice
 const authSlice = createSlice({

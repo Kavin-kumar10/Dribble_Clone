@@ -21,6 +21,7 @@ module.exports = {
         'source-serif': ['"Source Serif 4"', 'system-ui'], 
         'georgia-italic': ['"Georgia Italic"', 'serif'],
         'mona-sans':["Mona-sans","serif"],
+        // 'mona-sans-normal':["Mona-sans-normal","serif"],
         'serif-font':["serif-font","system-ui"]
       },
     },

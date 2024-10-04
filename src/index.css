@@ -14,6 +14,13 @@
 @font-face {
   font-family: 'Mona-sans';
   src: url('../src/assets/Fonts/Mona-Sans-870dff5a10221ba7d01cc47eca10d0b2f911bd4196bb941985490bd8c7363cd9.woff2') format('woff2');
+  font-weight:bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Mona-sans';
+  src: url('../src/assets/Fonts/Mona-Sans-870dff5a10221ba7d01cc47eca10d0b2f911bd4196bb941985490bd8c7363cd9.woff2') format('woff2');
   font-weight:normal;
   font-style: normal;
 }

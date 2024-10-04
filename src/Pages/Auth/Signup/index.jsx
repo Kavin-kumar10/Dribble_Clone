@@ -1,10 +1,11 @@
 import Wix from "../wix.svg"
 import { FcGoogle } from "react-icons/fc"
+import { Link } from "react-router-dom"
 
 const Signup = () =>{
     return(
         <div className="Signup flex relative h-screen w-screen">
-            <div className="flex flex-col w-1/4 absolute">
+            <div className="lg:flex flex-col w-1/4 hidden absolute">
                 <div className="wix bg-[#0d0c22] gap-10 px-10 py-20 flex flex-col items-start">
                     <img src={Wix} className="h-7" alt="" />
                     <h1 className="text-3xl text-secondary">Deliver more value to clients with an expert-led SEO course.</h1>
@@ -14,12 +15,12 @@ const Signup = () =>{
                 </video>
             </div>
             <div className="flex flex-col items-center justify-center w-full h-full">
-                <div className="w-[30vw] gap-5 flex flex-col">
+                <div className="w-full p-10 sm:p-0 sm:w-1/2 md:w-1/3 gap-5 flex flex-col">
                     <h1 className="text-2xl font-semibold mb-10">Sign up to Dribbble</h1>
                     <button className="w-full hover:opacity-50 flex bg-primary text-secondary items-center justify-center font-semibold p-3 rounded-full border gap-5"><FcGoogle size={20}/> Sign in to Google</button>
                     <button className="w-full hover:opacity-50 flex bg-secondary text-primary items-center justify-center font-semibold p-3 rounded-full border ">Continue with email</button>
                     <p className="text-sm text-center mt-10">By creating an account you agree with our Terms of Service, Privacy Policy, and our default Notification Settings.</p>
-                    <p className="text-center text-sm">Already have an account? <u>Sign In</u></p>
+                    <p className="text-center text-sm">Already have an account? <u><Link to="/Login">Sign In</Link></u></p>
                 </div>
             </div>
         </div>

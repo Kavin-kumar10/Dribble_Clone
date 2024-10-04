@@ -22,19 +22,19 @@ export const fetchDesigns = createAsyncThunk('designs/fetchDesigns', async () =>
   });
     
 
-  export const loginUser = createAsyncThunk(
-    'auth/loginUser',
-    async ({ email, password }, { rejectWithValue }) => {
-      try {
-        const response = await fetch(`${baseUrl}/login?email=${email}&password=${password}`);
-        const data = await response.json();
-        if (data.length === 0) {
-          throw new Error('Invalid credentials');
-        }
-        localStorage.setItem('user', JSON.stringify(data));
-        return data[0] 
-      } catch (error) {
-        return rejectWithValue(error.message);
+export const loginUser = createAsyncThunk(
+  'auth/loginUser',
+  async ({ email, password }, { rejectWithValue }) => {
+    try {
+      const response = await fetch(`${baseUrl}/login?email=${email}&password=${password}`);
+      const data = await response.json();
+      if (data.length === 0) {
+        throw new Error('Invalid credentials');
       }
+      localStorage.setItem('user', JSON.stringify(data));
+      return data[0] 
+    } catch (error) {
+      return rejectWithValue(error.message);
     }
-  );
+  }
+);

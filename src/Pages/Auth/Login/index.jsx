@@ -17,7 +17,9 @@ const Login = ()=>{
         e.preventDefault();
         dispatch(loginUser({ email, password }));
         setTimeout(()=>{
-            navigate('/');
+            const user = localStorage.getItem('user');
+            if(user)
+                navigate('/');
         },1000)
     };
     
@@ -26,7 +28,7 @@ const Login = ()=>{
             <div className="flex-col w-1/4 absolute hidden lg:flex">
                 <div className="wix bg-[#0d0c22] px-10 py-20 gap-10 flex flex-col items-start">
                     <img src={Wix} className="h-7" alt="" />
-                    <h1 className="text-4xl text-secondary">Deliver more value to clients with an expert-led SEO course.</h1>
+                    <h1 className="text-2xl text-secondary">Deliver more value to clients with an expert-led SEO course.</h1>
                     <p className="text-lg text-secondary">Take the course --</p>
                 </div>
                 <video class="wix-auth-sidebar__media h-full" muted="" autoplay="true" loop="true" poster="https://cdn.dribbble.com/uploads/58490/original/c3db6c95a7ecf8de7a4dfa8790432c8a.jpg?1727183764" src="https://cdn.dribbble.com/uploads/58489/original/9d10766cd3ed04dbbe770edb40140700.mp4?1727183698">

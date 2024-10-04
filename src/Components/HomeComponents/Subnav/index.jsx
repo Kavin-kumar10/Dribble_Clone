@@ -7,7 +7,7 @@ const Subnav = () =>{
     const navs = ["Discover","Animation","Branding","Illustration","Mobile","Print","Product Design","Typography","Web Design"]
     return(
         <div className="Subnav flex justify-between items-center px-10 md:px-20 py-6 overflow-scroll w-full">
-            <button className="px-4 text-sm py-2 border rounded-md border-slate-200 gap-2 flex items-center justify-center">Following <FaAngleDown/></button>
+            <button className="px-4 hover:shadow text-sm py-2 border rounded-md border-slate-200 gap-2 flex items-center justify-center">Following <FaAngleDown/></button>
             <ul className="flex gap-5 font-bold">
                 {
                     navs.map(elem=>
@@ -15,7 +15,7 @@ const Subnav = () =>{
                     )
                 }
             </ul>
-            <button className="px-4 text-sm py-2 border rounded-full border-slate-200 gap-2 flex items-center justify-center"><MdOutlineFilterList/> Filter</button>
+            <button className="px-4 hover:shadow text-sm py-2 border rounded-full border-slate-200 gap-2 flex items-center justify-center"><MdOutlineFilterList/> Filter</button>
         </div>
     )
 }

@@ -13,7 +13,7 @@ import DesignCard from "../../Components/HomeComponents/DesignCard";
 import Loader from "../../Components/HomeComponents/Loader";
 
 const Home = () =>{
-    const User = JSON.parse(localStorage.getItem("user"));
+    const User = JSON.parse(localStorage.getItem("user"))?.email;
     const Designs = useSelector(state => state.Data.Designs);
     const Loading = useSelector(state => state.Data.loading);
     const dispatch = useDispatch();
@@ -38,7 +38,7 @@ const Home = () =>{
                         </div>
                         :<></>
                     }
-                    <div className="px-10 md:px-20 py-6 grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-10">
+                    <div className="px-10 md:px-20 py-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
                     
                     {
                         Designs?.map((design)=>{

@@ -34,12 +34,12 @@ const Login = ()=>{
                     <button className="w-full flex items-center justify-center font-semibold p-3 rounded-full border ">Sign in to Google</button>
                     <div className="flex flex-col gap-2 my-5">
                         <label htmlFor="user">Username or Email</label>
-                        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} id="user" className="border px-4 py-4 rounded-2xl outline-none"
+                        <input type="email" placeholder="kavinkumarm@presidio.com" value={email} onChange={(e) => setEmail(e.target.value)} id="user" className="border px-4 py-4 rounded-2xl outline-none"
   style={{ boxShadow: 'rgba(234, 100, 217, 0.1) 0px 0px 0px 4px;' }}  />
                     </div>
                     <div className="flex flex-col gap-2 my-5">
                         <label htmlFor="password">Password</label>
-                        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)}  id="password"  className="border px-4 py-4 rounded-2xl outline-none"
+                        <input type="password" placeholder="pass" value={password} onChange={(e) => setPassword(e.target.value)}  id="password"  className="border px-4 py-4 rounded-2xl outline-none"
   style={{ boxShadow: 'rgba(234, 100, 217, 0.1) 0px 0px 0px 4px;' }} />
                     </div>
                     <button type="submit" disabled={loading} className="py-3 px-3 rounded-full flex items-center text-center justify-center w-full text-secondary bg-primary">Sign in</button>

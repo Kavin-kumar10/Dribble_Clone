@@ -12,7 +12,7 @@ const DesignCard = ({design}) =>{
             <div className="relative group cursor-pointer">
                 <div className="absolute rounded-md opacity-0 group-hover:opacity-100 duration-500 flex items-end justify-end h-full w-full">
                     <div className="w-full h-2/3 rounded-md bg-gradient-to-b from-transparent flex items-end py-4 justify-center px-3 via-[rgba(225,225,225,0.1)] to-black">
-                        <ul className="flex gap-1 items-center justify-between">
+                        <ul className="flex gap-1 items-center justify-between w-full">
                             <li className="truncate w-3/5 font-bold text-secondary">{design.title}</li>
                             <div className="flex gap-2">
                                 <li className="p-3 bg-secondary rounded-full text-black"><IoBookmarkOutline/></li>

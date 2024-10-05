@@ -32,17 +32,11 @@
   font-style: normal;
 }
 
-
-@keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-100%); }
-}
-
 .marquee {
-  overflow: hidden;
-  white-space: nowrap;
   display: flex;
   align-items: center;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .marquee-content {
@@ -53,6 +47,11 @@
 .marquee-item {
   display: inline-block;
   margin-right: 1.25rem;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
 }
 
 .spinner{

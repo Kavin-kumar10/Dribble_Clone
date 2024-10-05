@@ -13,7 +13,7 @@ import DesignCard from "../../Components/HomeComponents/DesignCard";
 import Loader from "../../Components/HomeComponents/Loader";
 
 const Home = () =>{
-    const User = JSON.parse(localStorage.getItem("user"))?.email;
+    const User = JSON.parse(localStorage.getItem("user")).email;
     const Designs = useSelector(state => state.Data.Designs);
     const Loading = useSelector(state => state.Data.loading);
     const dispatch = useDispatch();

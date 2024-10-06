@@ -9,8 +9,8 @@ const Account = () =>{
     return(
         <div className="Account flex flex-col min-h-screen">
             <Navbar/>
-            <div className="Profile flex items-center justify-center flex-col px-20">
-                <div className="flex gap-10 py-16">
+            <div className="Profile flex items-start sm:items-center justify-center flex-col px-5 sm:px-10 md:px-20">
+                <div className="flex flex-col md:flex-row gap-10 py-8 md:py-16">
                     <img  src="https://cdn.dribbble.com/uploads/47173/original/Vladimir_Gruev.png?1689174896&format=webp&resize=400x498&vertical=center" className="h-20 w-20 object-cover rounded-full "/>
                     <div className="flex flex-col items-start justify-center gap-3">
                         <h1 className="text-4xl font-bold">Kavin Kumar M</h1>
@@ -21,7 +21,7 @@ const Account = () =>{
                         </div>
                     </div>
                 </div>
-                <ul className="flex gap-3  font-semibold text-sm self-start">
+                <ul className="flex gap-3 overflow-scroll truncate w-screen font-semibold text-sm self-start">
                     {
                         AccountSubNav?.map(elem=>{
                             return(

@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from "react";
+import React,{useEffect} from "react";
 import Navbar from "../../Components/HomeComponents/Navbar";
 import GetStarted from "../../Components/HomeComponents/GetStarted";
 import Marquee from "../../Components/HomeComponents/Marquee";
@@ -10,9 +10,12 @@ import { fetchDesigns, fetchProfiles,fetchThumpnails } from "../../Redux/AxiosCa
 import Thumpnails from "../../Components/HomeComponents/Thumpnails";
 import Subnav from "../../Components/HomeComponents/Subnav";
 import DesignCard from "../../Components/HomeComponents/DesignCard";
-import Loader from "../../Components/HomeComponents/Loader";
+import CollectionPop from "../../Components/CollectionPop";
+import NewCollectionPop from "../../Components/NewCollectionPop";
 
 const Home = () =>{
+    const isCollectionPop = useSelector(state => state.Pop.isCollectionPop);
+    const isNewCollectionPop = useSelector(state => state.Pop.isNewCollectionPop);
     const User = JSON.parse(localStorage.getItem("user"))?.email;
     const Designs = useSelector(state => state.Data.Designs);
     const Loading = useSelector(state => state.Data.loading);
@@ -25,6 +28,16 @@ const Home = () =>{
     return(
         <div className="Home bg-secondary text-primary min-h-screen w-screen">
             <Navbar/>
+            {
+                isCollectionPop?
+                <CollectionPop/>:
+                <></>
+            }
+            {
+                isNewCollectionPop?
+                <NewCollectionPop/>:
+                <></>
+            }
             {
                 User?
                 <>

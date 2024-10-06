@@ -5,11 +5,12 @@ import { IoSearchOutline } from "react-icons/io5";
 import { FaAngleDown } from "react-icons/fa6";
 import { HiBars3BottomLeft } from "react-icons/hi2";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-
+import { Link } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 
 
 const Navbar = () => {
+    const navigate = useNavigate();
     const User = JSON.parse(localStorage.getItem('user'))?.email;
     return(
         <div className="Navbar flex justify-between items-center px-5 md:px-10 py-6 font-bold gap-5">
@@ -36,7 +37,9 @@ const Navbar = () => {
             </ul>
             <div className="flex gap-5 items-center justify-center">
                 <HiBars3BottomLeft size={30} className="block md:hidden"/>
-                <img className="block md:hidden lg:block h-10 w-auto" src={Logo} alt="logo" />
+                <Link to="/">
+                    <img className="block md:hidden lg:block h-10 w-auto" src={Logo} alt="logo" />
+                </Link>
             </div>
             <ul className="text-sm flex items-center justify-end gap-5 flex-grow">
                 <div className="relative hidden lg:block">
@@ -51,7 +54,7 @@ const Navbar = () => {
                         <Link to="/Signup"><CustomButton text="Sign up" mode="dark"/></Link>    
                     </>
                     :
-                    <div className="h-12 w-12 rounded-full object-cover relative group">
+                    <div onClick={()=>navigate("/Account")} className="h-12 w-12 cursor-pointer rounded-full object-cover relative group">
                         <img  src="https://cdn.dribbble.com/uploads/47173/original/Vladimir_Gruev.png?1689174896&format=webp&resize=400x498&vertical=center" className="h-full w-full object-cover rounded-full "/>
                         <div className="absolute  z-50 items-center justify-center group-hover:flex hidden top-0 right-0  py-16">
                             <div className="flex flex-col items-center gap-5 justify-center px-5 pt-10 pb-5  min-w-80 py-10 bg-white rounded-lg">

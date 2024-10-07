@@ -15,7 +15,7 @@ const Marquee = () => {
         <div className="marquee h-[40vh]">
             <div className="marquee-content gap-4">
                 {Profiles.map((profile, index) => (
-                    <div key={index} className="cursor-pointer marquee-item flex flex-col items-start min-h-72 min-w-64 rounded-xl justify-end relative bg-white shadow-lg m-2">
+                    <div key={index} className="cursor-pointer marquee-item flex flex-col items-start h-72 lg:h-80 w-64 rounded-xl justify-end relative bg-white shadow-lg m-2">
                         <div className="absolute h-full w-full justify-end text-secondary flex rounded-xl flex-col gap-3 p-4">
                             <div className="flex flex-col">
                                 <h1 className="text-xs font-bold">{profile.name}</h1>

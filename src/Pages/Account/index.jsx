@@ -7,7 +7,7 @@ import Footer from "../../Components/HomeComponents/Footer";
 const Account = () =>{
     const AccountSubNav = ["Work","Boosted Shots","Collections","Liked Shots","About"]
     return(
-        <div className="Account flex flex-col min-h-screen">
+        <div className="Account flex flex-col min-h-screen overflow-x-hidden">
             <Navbar/>
             <div className="Profile flex items-start sm:items-center justify-center flex-col px-5 sm:px-10 md:px-20">
                 <div className="flex flex-col md:flex-row gap-10 py-8 md:py-16">

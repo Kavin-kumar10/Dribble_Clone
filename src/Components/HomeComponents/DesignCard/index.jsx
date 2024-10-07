@@ -1,13 +1,15 @@
 import { IoIosHeartEmpty } from "react-icons/io";
 import { IoEyeOutline } from "react-icons/io5";
-import { IoBookmarkOutline } from "react-icons/io5";
+import { IoBookmarkOutline,IoBookmark } from "react-icons/io5";
 import { FaRegHeart } from "react-icons/fa";
 import { toggleCollectionPop } from "../../../Redux/PopSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setSelectedDesign } from "../../../Redux/DataSlice";
 
 
 const DesignCard = ({design}) =>{
     const dispatch = useDispatch();
+    const savedDesigns = useSelector(state => state.Data.savedDesigns);
     return(
         <div className="DesignCard rounded-md flex flex-col gap-2 ">
             <div className="relative group cursor-pointer">
@@ -16,7 +18,15 @@ const DesignCard = ({design}) =>{
                         <ul className="flex gap-1 items-center justify-between w-full">
                             <li className="truncate w-3/5 font-bold text-secondary">{design.title}</li>
                             <div className="flex gap-2">
-                                <li onClick={()=>dispatch(toggleCollectionPop())} className="p-3 bg-secondary rounded-full text-black"><IoBookmarkOutline/></li>
+                                <li onClick={()=>{
+                                    dispatch(toggleCollectionPop());
+                                    dispatch(setSelectedDesign(design));
+                                }} className="p-3 bg-secondary rounded-full text-black">{
+                                    savedDesigns.includes(design)?
+                                    <IoBookmark size={15}/> :
+                                    <IoBookmarkOutline size={15}/>
+                                }
+                                    </li>
                                 <li className="p-3 bg-secondary rounded-full text-black"><FaRegHeart/></li>
                             </div>
                         </ul>

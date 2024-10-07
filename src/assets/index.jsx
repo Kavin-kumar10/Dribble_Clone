@@ -1,0 +1,1 @@
+export const addimage = require("./addimage.png")

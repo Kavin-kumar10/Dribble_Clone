@@ -1,10 +1,10 @@
 import Wix from "../wix.svg"
 import { useDispatch,useSelector } from "react-redux";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { loginUser } from "../../../Redux/AxiosCalls";
 import { useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
-
+import { Navigate } from "react-router-dom";
 
 
 const Login = ()=>{
@@ -13,6 +13,11 @@ const Login = ()=>{
     const [password, setPassword] = useState('');
     const dispatch = useDispatch();
     const { user, error, loading } = useSelector((state) => state.Auth);
+    useEffect(()=>{
+        const user = localStorage.getItem('user');
+        if(user)
+            navigate('/');
+    },[])
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(loginUser({ email, password }));

@@ -1,10 +1,21 @@
-import React from "react";
-import { useDispatch } from "react-redux";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { IoIosClose } from "react-icons/io";
-import { toggleNewCollectionPop } from "../../Redux/PopSlice";
+import { toggleCollectionPop, toggleNewCollectionPop } from "../../Redux/PopSlice";
+import { Navigate } from "react-router-dom";
+import { addCollection } from "../../Redux/DataSlice";
 
 const NewCollectionPop = () =>{
+    const user = JSON.parse(localStorage.getItem('user'));
+    const selectedItem = useSelector(state => state.Data.selectedDesign);
     const dispatch = useDispatch();
+    const [newCollection,setNewcollection] = useState({
+        id: 1,
+        name:'',
+        description:"",
+        items:[]
+    })
+    if(!user) return <Navigate to="/Login"/>
     return(
         <div className="NewCollectionPop h-screen flex justify-center p-2 md:p-10 fixed top-0 left-0 z-40 w-screen bg-[#1E1E1EE6]">
         <div className="w-full sm:w-3/5 md:w-2/5 flex flex-col h-fit bg-white p-2 rounded-xl">
@@ -20,7 +31,7 @@ const NewCollectionPop = () =>{
                 </div>
                 <div className="flex flex-col px-12 py-6 gap-1">
                     <h1 className="text-lg">Name</h1>
-                    <input className=" outline-none focus:shadow-custom-shadow hover:shadow-custom-shadow px-3 py-4 text-sm rounded-lg text-black font-light border border-gray-200" type="text"  />
+                    <input onChange={(e)=>setNewcollection({...newCollection,name:e.target.value})} className=" outline-none focus:shadow-custom-shadow hover:shadow-custom-shadow px-3 py-4 text-sm rounded-lg text-black font-light border border-gray-200" type="text"  />
                 </div>
                 <div className="flex flex-col px-12 py-1 gap-1">
                     <h1 className="text-lg">Description (Optional)</h1>
@@ -30,7 +41,11 @@ const NewCollectionPop = () =>{
                     <p className="opacity-50 text-sm">URLs are Hyperlinked. Only a tag is allowed</p>
                 </div>
                 <div className="flex gap-5 px-12 py-6">
-                    <button className="px-4 py-2 border border-primary text-secondary bg-primary rounded-full text-sm">Create Collection</button>
+                    <button onClick={()=>{
+                        dispatch(addCollection(newCollection))
+                        dispatch(toggleCollectionPop());
+                        dispatch(toggleNewCollectionPop());
+                    }} className="px-4 py-2 border border-primary text-secondary bg-primary rounded-full text-sm">Create Collection</button>
                     <button onClick={()=>dispatch(toggleNewCollectionPop())} className="px-4 py-2 border border-primary rounded-full text-sm">Cancel</button>
                 </div>
             </div>

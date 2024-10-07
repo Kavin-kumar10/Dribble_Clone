@@ -1,8 +1,13 @@
 import Wix from "../wix.svg"
 import { FcGoogle } from "react-icons/fc"
 import { Link } from "react-router-dom"
+import { Navigate } from "react-router-dom"
 
 const Signup = () =>{
+    const user = JSON.parse(localStorage.getItem('user'))?.email;
+    if(user){
+        return <Navigate to="/" />;
+    }
     return(
         <div className="Signup flex relative h-screen w-screen">
             <div className="lg:flex flex-col w-1/4 hidden absolute">

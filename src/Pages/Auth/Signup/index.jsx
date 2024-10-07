@@ -23,6 +23,7 @@ const Signup = () =>{
                 <div className="w-full p-10 sm:p-0 sm:w-1/2 md:w-1/3 gap-5 flex flex-col">
                     <h1 className="text-2xl font-semibold mb-10">Sign up to Dribbble</h1>
                     <button className="w-full hover:opacity-50 flex bg-primary text-secondary items-center justify-center font-semibold p-3 rounded-full border gap-5"><FcGoogle size={20}/> Sign in to Google</button>
+                    <div className=" text-gray-400 opacity-90 relative bar flex self-center w-full items-center justify-center px-2 py-5">or</div>
                     <button className="w-full hover:opacity-50 flex bg-secondary text-primary items-center justify-center font-semibold p-3 rounded-full border ">Continue with email</button>
                     <p className="text-sm text-center mt-10">By creating an account you agree with our Terms of Service, Privacy Policy, and our default Notification Settings.</p>
                     <p className="text-center text-sm">Already have an account? <u><Link to="/Login">Sign In</Link></u></p>

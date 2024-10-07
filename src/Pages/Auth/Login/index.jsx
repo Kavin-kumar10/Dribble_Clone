@@ -43,7 +43,7 @@ const Login = ()=>{
                 <form onSubmit={handleSubmit} className="w-full p-10 sm:p-0 sm:w-1/2 md:w-1/3 gap-5">
                     <h1 className="text-3xl font-semibold mb-10">Sign in to Dribbble</h1>
                     <button className="w-full flex items-center justify-center font-semibold p-3 rounded-full border gap-5"><FcGoogle size={20}/> Sign in to Google</button>
-                    <div className=" text-gray-400 opacity-90 bar flex self-center w-full items-center justify-center px-2 py-5">or sign in with email</div>
+                    <div className=" text-gray-400 opacity-90 relative bar flex self-center w-full items-center justify-center px-2 py-5">or sign in with email</div>
                     <div className="flex flex-col gap-2 my-5">
                         <label htmlFor="user">Username or Email</label>
                         <input type="email" placeholder="kavinkumarm@presidio.com" value={email} onChange={(e) => setEmail(e.target.value)} id="user" className="border px-4 py-4 rounded-2xl outline-none"

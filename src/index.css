@@ -67,3 +67,25 @@
     100% { transform: rotate(360deg);
    }
 }
+
+
+.bar::after{
+  content: ""; 
+  position: absolute;
+  top: 50%;
+  width: 30%; 
+  height: 1px;
+  left:0;
+  background-color: gray; 
+  z-index: -1; 
+}
+.bar::before{
+  content: ""; 
+  position: absolute;
+  top: 50%;
+  width: 30%; 
+  height: 1px;
+  right: 0;
+  background-color: gray; 
+  z-index: -1; 
+}

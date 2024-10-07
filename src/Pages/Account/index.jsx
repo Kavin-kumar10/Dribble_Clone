@@ -25,7 +25,7 @@ const Account = () =>{
                     {
                         AccountSubNav?.map(elem=>{
                             return(
-                                <li key={elem} className="px-5 py-3">{elem}</li>
+                                <li key={elem} className={`rounded-full ${elem == "Collections"?"bg-gray-200":""} px-5 py-3`}>{elem}</li>
                             )
                         })
                     }

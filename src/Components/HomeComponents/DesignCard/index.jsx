@@ -1,14 +1,16 @@
 import { IoIosHeartEmpty } from "react-icons/io";
 import { IoEyeOutline } from "react-icons/io5";
 import { IoBookmarkOutline,IoBookmark } from "react-icons/io5";
-import { FaRegHeart } from "react-icons/fa";
+import { IoMdHeart } from "react-icons/io";
 import { toggleCollectionPop } from "../../../Redux/PopSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { setSelectedDesign } from "../../../Redux/DataSlice";
-
+import { addToLikedDesigns } from "../../../Redux/DataSlice";
+import { FaRegHeart } from "react-icons/fa6";
 
 const DesignCard = ({design}) =>{
     const dispatch = useDispatch();
+    const likedDesigns = useSelector(state => state.Data.likedDesigns);
     const savedDesigns = useSelector(state => state.Data.savedDesigns);
     return(
         <div className="DesignCard rounded-md flex flex-col gap-2 ">
@@ -23,11 +25,17 @@ const DesignCard = ({design}) =>{
                                     dispatch(setSelectedDesign(design));
                                 }} className="p-3 bg-secondary rounded-full text-black">{
                                     savedDesigns.includes(design)?
-                                    <IoBookmark size={15}/> :
+                                    <IoBookmark size={15} className="text-[#ea64d9]"/> :
                                     <IoBookmarkOutline size={15}/>
                                 }
                                     </li>
-                                <li className="p-3 bg-secondary rounded-full text-black"><FaRegHeart/></li>
+                                <li onClick={()=>dispatch(addToLikedDesigns(design))} className="p-3 bg-secondary rounded-full text-black">
+                                    {
+                                        likedDesigns.includes(design)?
+                                        <IoMdHeart size={15} className="text-[#ea64d9]"/> :
+                                        <IoIosHeartEmpty size={15}/>
+                                    }
+                                </li>
                             </div>
                         </ul>
                     </div>

@@ -3,6 +3,7 @@ import { fetchDesigns, fetchProfiles,fetchThumpnails } from "../AxiosCalls";
 
 const initialState = {
     Collections:[],
+    likedDesigns:[],
     savedDesigns:[],
     selectedDesign:null,
     selectedCollection:null,
@@ -25,6 +26,9 @@ const dataSlice = createSlice({
           name: action.payload.name, 
           items: [], 
         });
+      },
+      addToLikedDesigns: (state, action) => {
+        state.likedDesigns.push(action.payload);
       },
       setSelectedCollection: (state, action) => {
         state.selectedCollection = action.payload;
@@ -91,6 +95,6 @@ const dataSlice = createSlice({
           
 });
 
-export const { addCollection, addItemToCollection,setSelectedDesign,setSelectedCollection } = dataSlice.actions;
+export const { addCollection, addItemToCollection,addToLikedDesigns,setSelectedDesign,setSelectedCollection } = dataSlice.actions;
 
 export default dataSlice.reducer
